@@ -4,6 +4,20 @@ import ApexChartsComponent from './ApexCharts.component';
 const VueApexCharts = ApexChartsComponent;
 window.ApexCharts = ApexCharts;
 
+debugger
+
+const fill = window.SVG.Gradient.prototype.fill;
+window.Gradient.prototype.fill = function (...args) {
+  const url = fill.apply(this, args);
+  const prefix = `url(${document.location.href}`;
+
+  if (!url.startsWith(prefix)) {
+    return url.split('url(').join(prefix);
+  }
+
+  return url;
+};
+
 VueApexCharts.install = function (Vue) {
     //adding a global method or property
     Vue.ApexCharts = ApexCharts;
