@@ -92,7 +92,7 @@
         });
       });
     },
-    beforeDestroy: function beforeDestroy() {
+    beforeUnmount: function beforeUnmount() {
       if (!this.chart) {
         return;
       }
