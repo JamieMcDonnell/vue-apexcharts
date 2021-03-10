@@ -100,6 +100,7 @@
       this.destroy();
     },
     render: function render(createElement) {
+      console.log('RENDER:', arguments)
       return createElement("div");
     },
     methods: {
