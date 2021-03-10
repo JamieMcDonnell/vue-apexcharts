@@ -101,7 +101,7 @@
     },
     render: function render(createElement) {
       console.log('RENDER:', arguments)
-      if (createElement typeof 'function') {
+      if (typeof createElement === 'function') {
         return createElement("div");
       }
     },
