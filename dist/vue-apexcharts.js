@@ -118,9 +118,11 @@
           },
           series: this.series
         };
-        Object.keys(this.$listeners).forEach(function (evt) {
-          newOptions.chart.events[evt] = _this2.$listeners[evt];
-        });
+        if (this.$listeners) {
+          Object.keys(this.$listeners).forEach(function (evt) {
+            newOptions.chart.events[evt] = _this2.$listeners[evt];
+          });
+        }
         var config = this.extend(this.options, newOptions);
         this.chart = new ApexCharts(this.$el, config);
         return this.chart.render();
