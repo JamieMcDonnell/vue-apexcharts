@@ -7,6 +7,8 @@ window.ApexCharts = ApexCharts;
 debugger
 
 const fill = window.SVG.Gradient.prototype.fill;
+console.log('FILL: ', fill)
+/*
 window.Gradient.prototype.fill = function (...args) {
   const url = fill.apply(this, args);
   const prefix = `url(${document.location.href}`;
@@ -17,18 +19,19 @@ window.Gradient.prototype.fill = function (...args) {
 
   return url;
 };
+*/
 
 VueApexCharts.install = function (Vue) {
-    //adding a global method or property
-    Vue.ApexCharts = ApexCharts;
-    window.ApexCharts = ApexCharts;
-  
-    // add the instance method
-    Object.defineProperty(Vue.prototype, '$apexcharts', {
-        get: function get() {
-            return ApexCharts
-        }
-    });
+  //adding a global method or property
+  Vue.ApexCharts = ApexCharts;
+  window.ApexCharts = ApexCharts;
+
+  // add the instance method
+  Object.defineProperty(Vue.prototype, '$apexcharts', {
+    get: function get () {
+      return ApexCharts
+    }
+  });
 };
 
 export default VueApexCharts
