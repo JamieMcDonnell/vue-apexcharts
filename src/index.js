@@ -1,8 +1,7 @@
 import ApexCharts from "apexcharts/dist/apexcharts.min";
 import ApexChartsComponent from './ApexCharts.component';
-
-const VueApexCharts = ApexChartsComponent;
-window.ApexCharts = ApexCharts;
+/* eslint-disable */
+import Vue3Apexcharts from "./vue3-apexcharts";
 
 debugger
 
@@ -21,17 +20,10 @@ window.Gradient.prototype.fill = function (...args) {
 };
 */
 
-VueApexCharts.install = function (Vue) {
-  //adding a global method or property
-  Vue.ApexCharts = ApexCharts;
-  window.ApexCharts = ApexCharts;
-
-  // add the instance method
-  Object.defineProperty(Vue.prototype, '$apexcharts', {
-    get: function get () {
-      return ApexCharts
-    }
-  });
+const install = app => {
+  app.component(Vue3Apexcharts.name, Vue3Apexcharts);
 };
 
-export default VueApexCharts
+Vue3Apexcharts.install = install;
+
+export default Vue3Apexcharts;
